@@ -16,7 +16,7 @@ import static org.testng.Assert.*;
 
 public class LoginTests {
     WebDriver driver;
-    String  ErrorMessage;
+    String ErrorMessage;
 
     @BeforeMethod
     public void setup() {
