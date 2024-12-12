@@ -6,8 +6,9 @@ import org.testng.asserts.SoftAssert;
 import static org.testng.Assert.*;
 
 public class CartTest extends BaseTest {
-    @Test
+
     //Проверка добавления одного товара в корзину
+    @Test
     public void addOneProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -17,8 +18,9 @@ public class CartTest extends BaseTest {
                 "Sauce Labs Backpack",
                 "Заголовок 1 не соответсвует ");
     }
-    @Test
+
     //Проверка добавление несколько товаров   в корзину
+    @Test
     public void addSomeProduct() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
@@ -34,8 +36,9 @@ public class CartTest extends BaseTest {
                 "Заголовок 2 не соответсвует ");
         softAssert.assertAll();
     }
-    @Test
+
     //Проверка удаления товара из корзины
+    @Test
     public void removeProductInCart() {
 
         loginPage.open();
@@ -44,11 +47,10 @@ public class CartTest extends BaseTest {
         productsPage.openCart();
         cartPage.removeProductFirstinCart();
         assertTrue(cartPage.checkItemFirst());
-
-
     }
-    @Test
+
     //Проверка удаления товара из Категории
+    @Test
     public void removeProductInProducts() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
@@ -56,9 +58,8 @@ public class CartTest extends BaseTest {
         productsPage.addProductFirst();
         productsPage.removeProductFirstInCatalog();
         productsPage.openCart();
-        //softAssert.assertEquals(cartPage.checkItemFirst(), true);
+        softAssert.assertEquals(cartPage.checkItemFirst(), true);
         softAssert.assertAll();
-
     }
 }
 

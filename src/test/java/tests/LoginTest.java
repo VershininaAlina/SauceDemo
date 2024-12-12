@@ -1,9 +1,11 @@
 package tests;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.BurgerMenuPage;
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
@@ -55,6 +57,7 @@ public class LoginTest extends BaseTest {
                 "Epic sadface: Username is required",
                 "Сообщение отсутсвует");
     }
+
     //Негативный тест с несуществующими данными
     @Test
     public void notExistUser() {

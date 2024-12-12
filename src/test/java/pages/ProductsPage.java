@@ -8,28 +8,28 @@ public class ProductsPage {
 
     By buttomAddFirst = By.id("add-to-cart-sauce-labs-backpack");
     By buttomAddSecond = By.id("add-to-cart-sauce-labs-bike-light");
-    By buttomRemoveFirst= By.id("remove-sauce-labs-backpack");
+    By buttomRemoveFirst = By.id("remove-sauce-labs-backpack");
     By cartItem = By.className("shopping_cart_link");
 
-
-
-
-    public  ProductsPage(WebDriver driver){
+    public ProductsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void addProductFirst(){
+    public void addProductFirst() {
         driver.findElement(buttomAddFirst).click();
 
     }
-    public void addProductSecond(){
+
+    public void addProductSecond() {
         driver.findElement(buttomAddSecond).click();
 
     }
-    public void removeProductFirstInCatalog(){
+
+    public void removeProductFirstInCatalog() {
         driver.findElement(buttomRemoveFirst).click();
     }
-    public void openCart(){
+
+    public void openCart() {
         driver.findElement(cartItem).click();
     }
 
