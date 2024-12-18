@@ -12,10 +12,10 @@ public class CartTest extends BaseTest {
     public void addOneProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
-        productsPage.addProductFirst();
+        productsPage.addProduct("Sauce Labs Backpack");
         productsPage.openCart();
         assertEquals(cartPage.getFirstTitleInCart(),
-                "Sauce Labs Backpack",
+                productsPage.getTittleProductInCatalog(productsPage.tittleFirst),
                 "Заголовок 1 не соответсвует ");
     }
 
@@ -25,14 +25,14 @@ public class CartTest extends BaseTest {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
-        productsPage.addProductFirst();
-        productsPage.addProductSecond();
+        productsPage.addProduct("Sauce Labs Backpack");
+        productsPage.addProduct("Sauce Labs Bike Light");
         productsPage.openCart();
         softAssert.assertEquals(cartPage.getFirstTitleInCart(),
-                "Sauce Labs Backpack",
+                productsPage.getTittleProductInCatalog(productsPage.tittleFirst),
                 "Заголовок 1 не соответсвует ");
-        softAssert.assertEquals(cartPage.getSecondtTitleInCart(),
-                "Sauce Labs Bike Light",
+        softAssert.assertEquals(cartPage.getSecondTitleInCart(),
+                productsPage.getTittleProductInCatalog(productsPage.tittleSecond),
                 "Заголовок 2 не соответсвует ");
         softAssert.assertAll();
     }
@@ -43,9 +43,9 @@ public class CartTest extends BaseTest {
 
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
-        productsPage.addProductFirst();
+        productsPage.addProduct("Sauce Labs Backpack");
         productsPage.openCart();
-        cartPage.removeProductFirstinCart();
+        cartPage.removeProductionCart();
         assertTrue(cartPage.checkItemFirst());
     }
 
@@ -55,8 +55,8 @@ public class CartTest extends BaseTest {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
-        productsPage.addProductFirst();
-        productsPage.removeProductFirstInCatalog();
+        productsPage.addProduct("Sauce Labs Backpack");
+        productsPage.removeProductInCatalog("Sauce Labs Backpack");
         productsPage.openCart();
         softAssert.assertEquals(cartPage.checkItemFirst(), true);
         softAssert.assertAll();

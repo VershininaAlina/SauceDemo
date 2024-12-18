@@ -62,7 +62,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void notExistUser() {
         loginPage.open();
-        loginPage.login("test", "test");
+        loginPage.login("test123", "test123");
         assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Username and password do not match any user in this service",
