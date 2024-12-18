@@ -6,20 +6,23 @@ import org.openqa.selenium.WebDriver;
 public class CartPage {
 
     WebDriver driver;
-    By cartItem = By.className("shopping_cart_link");
-    public By tittleProduct = By.className("inventory_item_name");
-    By buttomRemoveFirst = By.id("remove-sauce-labs-backpack");
+    By cartItem = By.cssSelector("#shopping_cart_container");
+    public By tittleProduct = By.cssSelector(".inventory_item_name");
+    By bottomRemoveInCart = By.cssSelector("#remove-sauce-labs-backpack");
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
     }
 
+    public String getTitleInCart() {
+        return driver.findElements(tittleProduct).get(0).getText();
+    }
 
     public String getFirstTitleInCart() {
         return driver.findElements(tittleProduct).get(0).getText();
     }
 
-    public String getSecondtTitleInCart() {
+    public String getSecondTitleInCart() {
         return driver.findElements(tittleProduct).get(1).getText();
     }
 
@@ -27,8 +30,8 @@ public class CartPage {
         return driver.findElements(tittleProduct).isEmpty();
     }
 
-    public void removeProductFirstinCart() {
-        driver.findElement(buttomRemoveFirst).click();
+    public void removeProductionCart() {
+        driver.findElement(bottomRemoveInCart).click();
     }
 
 

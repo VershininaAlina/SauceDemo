@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class ProductPage {
     WebDriver driver;
 
-    public void ProductPage (WebDriver driver) {
+    public ProductPage(WebDriver driver) {
         this.driver = driver;
     }
 }

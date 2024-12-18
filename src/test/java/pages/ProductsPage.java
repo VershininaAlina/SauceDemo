@@ -6,31 +6,34 @@ import org.openqa.selenium.WebDriver;
 public class ProductsPage {
     WebDriver driver;
 
-    By buttomAddFirst = By.id("add-to-cart-sauce-labs-backpack");
-    By buttomAddSecond = By.id("add-to-cart-sauce-labs-bike-light");
-    By buttomRemoveFirst = By.id("remove-sauce-labs-backpack");
-    By cartItem = By.className("shopping_cart_link");
+    String buttonAddAndRemove = "//div[text() = '%s']//ancestor::div[@class = 'inventory_item']//button";
+    public By tittleFirst = By.xpath("(//div[@class = 'inventory_item_name '])[1]");
+    public By tittleSecond = By.xpath("(//div[@class = 'inventory_item_name '])[2]");
+
+    By cartItem = By.cssSelector(".shopping_cart_link");
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void addProductFirst() {
-        driver.findElement(buttomAddFirst).click();
+    public void addProduct(String product) {
+        driver.findElement(By.xpath(String.format(String.valueOf(buttonAddAndRemove), product))).click();
 
     }
 
-    public void addProductSecond() {
-        driver.findElement(buttomAddSecond).click();
-
-    }
-
-    public void removeProductFirstInCatalog() {
-        driver.findElement(buttomRemoveFirst).click();
+    public void removeProductInCatalog(String product) {
+        driver.findElement(By.xpath(String.format(buttonAddAndRemove, product))).click();
     }
 
     public void openCart() {
         driver.findElement(cartItem).click();
+    }
+
+    public String getTittleProductInCatalog(By tittle) {
+        driver.get("https://www.saucedemo.com/inventory.html");
+        return driver.findElement(tittle).getText();
+
+
     }
 
 }

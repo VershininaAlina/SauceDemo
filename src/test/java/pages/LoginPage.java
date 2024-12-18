@@ -6,11 +6,11 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
     WebDriver driver;
 
-    By userField = By.id("user-name");
-    By passwordField = By.id("password");
-    By loginButton = By.id("login-button");
-    By errorMessage = By.xpath("//*[@id=\"login_button_container\"]/div/form/div[3]/h3");
-    public By burgerCartElement = By.id("react-burger-menu-btn");
+    By userField = By.cssSelector("#user-name");
+    By passwordField = By.cssSelector("#password");
+    By loginButton = By.cssSelector("#login-button");
+    By errorMessage = By.xpath("//div/h3");
+
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
