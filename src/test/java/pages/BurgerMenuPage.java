@@ -6,8 +6,12 @@ import org.openqa.selenium.WebDriver;
 public class BurgerMenuPage {
     WebDriver driver;
 
-    By BurgerMenu = By.id("react-burger-menu-btn");
-    public By ButtonLogoutinBurgerMenu = By.id("logout_sidebar_link");
+    By BurgerMenu = By.xpath("(//div/button)[1]");
+
+    public By ButtonAllItemsBurgerMenu = By.cssSelector("#inventory_sidebar_link");
+    public By ButtonAboutBurgerMenu = By.cssSelector("#about_sidebar_link");
+    public By ButtonLogoutBurgerMenu = By.cssSelector("#logout_sidebar_link");
+    public By ButtonResetBurgerMenu = By.cssSelector("#reset_sidebar_link");
 
     public BurgerMenuPage(WebDriver driver) {
         this.driver = driver;
@@ -18,7 +22,14 @@ public class BurgerMenuPage {
     }
 
     public boolean checkElementLogout() {
-        return ButtonLogoutinBurgerMenu != null;
+        return ButtonLogoutBurgerMenu != null;
+    }
+
+    public boolean checkElementsAll() {
+        return (ButtonLogoutBurgerMenu != null) & (ButtonResetBurgerMenu != null) &&
+                (ButtonAllItemsBurgerMenu != null) && (ButtonAboutBurgerMenu != null);
+
+
     }
 
 
