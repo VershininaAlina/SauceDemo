@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.*;
+import jdk.jfr.Description;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -8,7 +10,13 @@ import static org.testng.Assert.*;
 public class CartTest extends BaseTest {
 
     //Проверка добавления одного товара в корзину
-    @Test
+    @Test (testName = "Проверка добавления одного товара в корзину")
+    @Description("Проверка добавления одного товара в корзину")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo - 1.0")
+    @Feature("Cart")
+    @Story("Добавления  товара в корзину")
+    @TmsLink("www.Jira.com/web-154")
     public void addOneProduct() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -16,11 +24,17 @@ public class CartTest extends BaseTest {
         productsPage.openCart();
         assertEquals(cartPage.getFirstTitleInCart(),
                 productsPage.getTittleProductInCatalog(productsPage.tittleFirst),
-                "Заголовок 1 не соответсвует ");
+                "Заголовок 1 не соответствует ");
     }
 
     //Проверка добавление несколько товаров   в корзину
-    @Test
+    @Test (testName = "Проверка добавление несколько товаров   в корзинуу")
+    @Description("Проверка добавление несколько товаров   в корзину")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo - 1.0")
+    @Feature("Cart")
+    @Story("Добавления  товара в корзину")
+    @TmsLink("www.Jira.com/web-154")
     public void addSomeProduct() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();
@@ -30,15 +44,21 @@ public class CartTest extends BaseTest {
         productsPage.openCart();
         softAssert.assertEquals(cartPage.getFirstTitleInCart(),
                 productsPage.getTittleProductInCatalog(productsPage.tittleFirst),
-                "Заголовок 1 не соответсвует ");
+                "Заголовок 1 не соответствует ");
         softAssert.assertEquals(cartPage.getSecondTitleInCart(),
                 productsPage.getTittleProductInCatalog(productsPage.tittleSecond),
-                "Заголовок 2 не соответсвует ");
+                "Заголовок 2 не соответствует ");
         softAssert.assertAll();
     }
 
     //Проверка удаления товара из корзины
-    @Test
+    @Test (testName = "Проверка удаления товара из корзины")
+    @Description("Проверка удаления товара из корзины")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo - 1.0")
+    @Feature("Cart")
+    @Story("Удаление  товара из корзины")
+    @TmsLink("www.Jira.com/web-154")
     public void removeProductInCart() {
 
         loginPage.open();
@@ -50,7 +70,13 @@ public class CartTest extends BaseTest {
     }
 
     //Проверка удаления товара из Категории
-    @Test
+    @Test (testName = "Проверка удаления товара из Категории")
+    @Description("Проверка удаления товара из Категории")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo - 1.0")
+    @Feature("Cart")
+    @Story("Удаление  товара из Категории")
+    @TmsLink("www.Jira.com/web-154")
     public void removeProductInProducts() {
         SoftAssert softAssert = new SoftAssert();
         loginPage.open();

@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.*;
+import jdk.jfr.Description;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -14,8 +16,14 @@ public class LoginTest extends BaseTest {
 
     String ErrorMessage;
 
-    //Позитивный тест логина
-    @Test
+    //Авторизация с корректными данными
+    @Test (testName = "Авторизация с корректными данными  ")
+    @Description("Авторизация с корректными данными  ")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo - 1.0")
+    @Feature("Login")
+    @Story("Авторизация")
+    @TmsLink("www.Jira.com/web-134")
     public void positiveLogin() {
         loginPage.open();
         loginPage.login("standard_user", "secret_sauce");
@@ -25,48 +33,72 @@ public class LoginTest extends BaseTest {
                 "Нет элемента логаут");
     }
 
-    //Негативный тест логина с пустыми значениями
-    @Test
+    //Авторизация логина с пустыми значениями
+    @Test (testName = "Авторизация логина с пустыми значениями")
+    @Description("Авторизация логина с пустыми значениями")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo - 1.0")
+    @Feature("Login")
+    @Story("Авторизация")
+    @TmsLink("www.Jira.com/web-134")
     public void emptyData() {
         loginPage.open();
         loginPage.login("", "");
         assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Username is required",
-                "Сообщение отсутсвует");
+                "Сообщение отсутствует");
     }
 
-    //Негативный тест логина с некорректным  паролем
-    @Test
+    //Авторизация логина с некорректным  паролем
+    @Test (testName = "Авторизация логина с некорректным  паролем")
+    @Description("Авторизация логина с некорректным  паролем")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo - 1.0")
+    @Feature("Login")
+    @Story("Авторизация")
+    @TmsLink("www.Jira.com/web-134")
     public void invalidPassword() {
         loginPage.open();
         loginPage.login("standard_user", "");
         assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Password is required",
-                "Сообщение отсутсвует");
+                "Сообщение отсутствует");
     }
 
-    //Негативный тест логина с некорректным  username
-    @Test
+    //Авторизация логина с некорректным  username
+    @Test (testName = "Авторизация логина с некорректным  username")
+    @Description("Авторизация логина с некорректным  username")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo - 1.0")
+    @Feature("Login")
+    @Story("Авторизация")
+    @TmsLink("www.Jira.com/web-134")
     public void invalidUsername() {
         loginPage.open();
         loginPage.login("", "secret_sauce");
         assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Username is required",
-                "Сообщение отсутсвует");
+                "Сообщение отсутствует");
     }
 
-    //Негативный тест с несуществующими данными
-    @Test
+    //Авторизация  с несуществующими данными
+    @Test (testName = "Авторизация  с несуществующими данными")
+    @Description("Авторизация  с несуществующими данными")
+    @Severity(SeverityLevel.NORMAL)
+    @Epic("SauceDemo - 1.0")
+    @Feature("Login")
+    @Story("Авторизация")
+    @TmsLink("www.Jira.com/web-134")
     public void notExistUser() {
         loginPage.open();
         loginPage.login("test123", "test123");
         assertEquals(
                 loginPage.getErrorMessage(),
                 "Epic sadface: Username and password do not match any user in this service",
-                "Сообщение отсутсвует");
+                "Сообщение отсутствует");
     }
 }
 
