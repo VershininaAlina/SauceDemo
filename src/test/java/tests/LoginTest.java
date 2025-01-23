@@ -7,7 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.BurgerMenuPage;
-
+import org.testng.IAnnotationTransformer;
+import org.testng.annotations.ITestAnnotation;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 
@@ -17,7 +18,8 @@ public class LoginTest extends BaseTest {
     String ErrorMessage;
 
     //Авторизация с корректными данными
-    @Test (testName = "Авторизация с корректными данными  ")
+    @Test ( testName = "Авторизация с корректными данными  ",  description = "Авторизация с корректными данными ",
+            groups = {"Smoke", "UI"})
     @Description("Авторизация с корректными данными  ")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo - 1.0")
@@ -34,7 +36,8 @@ public class LoginTest extends BaseTest {
     }
 
     //Авторизация логина с пустыми значениями
-    @Test (testName = "Авторизация логина с пустыми значениями")
+    @Test (testName = "Авторизация логина с пустыми значениями",  description = "Авторизация логина с пустыми значениями",
+             groups =  {"UI"})
     @Description("Авторизация логина с пустыми значениями")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo - 1.0")
@@ -50,8 +53,9 @@ public class LoginTest extends BaseTest {
                 "Сообщение отсутствует");
     }
 
-    //Авторизация логина с некорректным  паролем
-    @Test (testName = "Авторизация логина с некорректным  паролем")
+    //Авторизация логина с некорректным паролем
+    @Test (testName = "Авторизация логина с некорректным  паролем",  description = "Авторизация логина с некорректным  паролем",
+             groups =  {"UI"} )
     @Description("Авторизация логина с некорректным  паролем")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo - 1.0")
@@ -67,8 +71,9 @@ public class LoginTest extends BaseTest {
                 "Сообщение отсутствует");
     }
 
-    //Авторизация логина с некорректным  username
-    @Test (testName = "Авторизация логина с некорректным  username")
+    //Авторизация логина с некорректным username
+    @Test (testName = "Авторизация логина с некорректным  username",  description = "Авторизация логина с некорректным  username",
+             groups =  {"UI"})
     @Description("Авторизация логина с некорректным  username")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo - 1.0")
@@ -84,8 +89,9 @@ public class LoginTest extends BaseTest {
                 "Сообщение отсутствует");
     }
 
-    //Авторизация  с несуществующими данными
-    @Test (testName = "Авторизация  с несуществующими данными")
+    //Авторизация с несуществующими данными
+    @Test (testName = "Авторизация  с несуществующими данными",  description = "Авторизация  с несуществующими данными",
+             groups =  {"UI"} )
     @Description("Авторизация  с несуществующими данными")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo - 1.0")
