@@ -2,6 +2,7 @@ package tests;
 
 import io.qameta.allure.*;
 import jdk.jfr.Description;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import org.testng.IAnnotationTransformer;
@@ -9,6 +10,8 @@ import org.testng.annotations.ITestAnnotation;
 import static org.testng.Assert.*;
 
 public class CartTest extends BaseTest {
+
+    
 
     //Проверка добавления одного товара в корзину
     @Test (testName = "Проверка добавления одного товара в корзину", description = "Проверка добавления одного товара в корзину",
