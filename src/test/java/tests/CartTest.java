@@ -4,13 +4,15 @@ import io.qameta.allure.*;
 import jdk.jfr.Description;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
-
+import org.testng.IAnnotationTransformer;
+import org.testng.annotations.ITestAnnotation;
 import static org.testng.Assert.*;
 
 public class CartTest extends BaseTest {
 
     //Проверка добавления одного товара в корзину
-    @Test (testName = "Проверка добавления одного товара в корзину")
+    @Test (testName = "Проверка добавления одного товара в корзину", description = "Проверка добавления одного товара в корзину",
+            groups = {"Smoke", "UI"})
     @Description("Проверка добавления одного товара в корзину")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo - 1.0")
@@ -27,8 +29,9 @@ public class CartTest extends BaseTest {
                 "Заголовок 1 не соответствует ");
     }
 
-    //Проверка добавление несколько товаров   в корзину
-    @Test (testName = "Проверка добавление несколько товаров   в корзинуу")
+    //Проверка добавление несколько товаров в корзину
+    @Test (testName = "Проверка добавление несколько товаров   в корзину",  description = "Проверка добавление несколько товаров   в корзину",
+            groups =  {"UI"})
     @Description("Проверка добавление несколько товаров   в корзину")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo - 1.0")
@@ -52,7 +55,8 @@ public class CartTest extends BaseTest {
     }
 
     //Проверка удаления товара из корзины
-    @Test (testName = "Проверка удаления товара из корзины")
+    @Test (testName = "Проверка удаления товара из корзины" , description = "Проверка удаления товара из корзины",
+            groups = {"Smoke", "UI"})
     @Description("Проверка удаления товара из корзины")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo - 1.0")
@@ -70,7 +74,8 @@ public class CartTest extends BaseTest {
     }
 
     //Проверка удаления товара из Категории
-    @Test (testName = "Проверка удаления товара из Категории")
+    @Test (testName = "Проверка удаления товара из Категории", description = "Проверка удаления товара из Категории",
+            groups =  {"UI"})
     @Description("Проверка удаления товара из Категории")
     @Severity(SeverityLevel.NORMAL)
     @Epic("SauceDemo - 1.0")
