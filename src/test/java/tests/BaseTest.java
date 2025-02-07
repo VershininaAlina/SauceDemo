@@ -44,7 +44,6 @@ public class BaseTest {
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
     }
-
     @AfterMethod(alwaysRun = true)
     public void tearDown(ITestResult result) {
         if(ITestResult.FAILURE == result.getStatus()){
