@@ -30,13 +30,13 @@ public class BaseTest {
         if(browser.equalsIgnoreCase("chrome")){
             ChromeOptions options = new ChromeOptions();
             options.addArguments("start-maximized");
-            options.addArguments("--headless");
+
             driver = new ChromeDriver(options);
         }
         if(browser.equalsIgnoreCase("firefox")){
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("start-maximized");
-            options.addArguments("--headless");
+
             driver = new FirefoxDriver(options);
         }
         loginPage = new LoginPage(driver);
