@@ -15,7 +15,6 @@ import static org.testng.Assert.assertNotNull;
 
 public class LoginTest extends BaseTest {
 
-
     String ErrorMessage;
 
     //Авторизация с корректными данными
