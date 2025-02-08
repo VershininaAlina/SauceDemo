@@ -29,7 +29,8 @@ public class BaseTest {
     public void setup(@Optional("chrome") String browser) {
         if(browser.equalsIgnoreCase("chrome")){
             ChromeOptions options = new ChromeOptions();
-            options.addArguments("start-maximized");
+            options.addArguments("--start-maximized");
+            options.addArguments("--headless");
             driver = new ChromeDriver(options);
         }
         if(browser.equalsIgnoreCase("firefox")){
